@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 113839196}
   - component: {fileID: 113839198}
   - component: {fileID: 113839197}
+  - component: {fileID: 113839199}
   m_Layer: 5
   m_Name: AnalogClock
   m_TagString: Untagged
@@ -201,6 +202,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 113839195}
   m_CullTransparentMesh: 1
+--- !u!114 &113839199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 113839195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1058722b861aba549af6c039934d8450, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  day: {fileID: 21300000, guid: 115cf470bd099b44cb0273af3fadc691, type: 3}
+  night: {fileID: 21300000, guid: ec276f15eba752342997879eccb043c1, type: 3}
+  isNight: 0
 --- !u!1 &171795983
 GameObject:
   m_ObjectHideFlags: 0
@@ -1104,14 +1120,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82eb784ab33e82c43a06ccdf61c721af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  secondCircle: 0
+  deltaAngle: 6
   DayNightChanged:
     m_PersistentCalls:
       m_Calls: []
   AngleChanged:
     m_PersistentCalls:
       m_Calls: []
-  secondCircle: 0
-  deltaAngle: 6
 --- !u!114 &617624084
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2247,14 +2263,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82eb784ab33e82c43a06ccdf61c721af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  secondCircle: 360
+  deltaAngle: 0.008333
   DayNightChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1682848151}
+        m_TargetAssemblyTypeName: DayNight, Assembly-CSharp
+        m_MethodName: SetDayOrNight
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   AngleChanged:
     m_PersistentCalls:
       m_Calls: []
-  secondCircle: 360
-  deltaAngle: 0.008333
 --- !u!114 &1109006129
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2866,12 +2894,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8579c75163855e7418a9614767af5665, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  alarmPref: {fileID: 7634896497989905772, guid: a7577a14481eab241afcee47465966c2, type: 3}
-  alarmSpawn: {fileID: 1129314686}
   CurrentTickNumber: 0
   CurrentTickStep: 0
   AlarmTime: 0
   NextUploadTime: 0
+  ChangeDayNight:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 113839199}
+        m_TargetAssemblyTypeName: DayNight, Assembly-CSharp
+        m_MethodName: SetDayOrNight
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   Tick:
     m_PersistentCalls:
       m_Calls: []
@@ -2881,6 +2922,8 @@ MonoBehaviour:
   TimerOn:
     m_PersistentCalls:
       m_Calls: []
+  alarmPref: {fileID: 7634896497989905772, guid: a7577a14481eab241afcee47465966c2, type: 3}
+  alarmSpawn: {fileID: 1129314686}
 --- !u!4 &1544876359
 Transform:
   m_ObjectHideFlags: 0
@@ -3908,14 +3951,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82eb784ab33e82c43a06ccdf61c721af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  secondCircle: 0
+  deltaAngle: 0.1
   DayNightChanged:
     m_PersistentCalls:
       m_Calls: []
   AngleChanged:
     m_PersistentCalls:
       m_Calls: []
-  secondCircle: 0
-  deltaAngle: 0.1
 --- !u!114 &1971797246
 MonoBehaviour:
   m_ObjectHideFlags: 0
