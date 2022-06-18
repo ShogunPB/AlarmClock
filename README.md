@@ -1,6 +1,6 @@
 # AlarmClock
 
-![https://drive.google.com/file/d/1FmWT1z10TzYIIawLjYLgvmS4X8i6PGlI/view?usp=sharing](https://drive.google.com/file/d/1FmWT1z10TzYIIawLjYLgvmS4X8i6PGlI/view?usp=sharing))
+![Screenshot](https://drive.google.com/uc?export=view&id=1FmWT1z10TzYIIawLjYLgvmS4X8i6PGlI)
 
 Приложение будильник.
 
