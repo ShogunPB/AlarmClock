@@ -4,13 +4,11 @@ public class ArrowRotate : MonoBehaviour
 {
     [SerializeField]
     float deltaAngle;
-    float timeScale;
 
 
     private void Start()
     {
-        timeScale = Data.TimeScale;
-        Data.timer.Tick.AddListener(RotateArrow);
+        Data.timer.ChangeSecond.AddListener(SetArrowAngle);
         Data.timer.TimerOn.AddListener(SetArrowAngle);
     }
 
@@ -19,13 +17,10 @@ public class ArrowRotate : MonoBehaviour
         transform.localRotation = Quaternion.Euler(0f, 0f, time * deltaAngle);
     }
 
-    private void RotateArrow()
-    {
-        transform.localRotation *= Quaternion.Euler(0f, 0f, timeScale * deltaAngle);
-    }
     private void OnDestroy()
     {
-        Data.timer.Tick.RemoveListener(RotateArrow);
+        Data.timer.ChangeSecond.RemoveListener(SetArrowAngle);
+        Data.timer.TimerOn.RemoveListener(SetArrowAngle);
     }
 
 }

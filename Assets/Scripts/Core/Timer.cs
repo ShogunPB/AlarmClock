@@ -10,8 +10,8 @@ public class Timer : MonoBehaviour
     public int AlarmTime;
     public int NextUploadTime;
     public BoolUnityEvent ChangeDayNight=new BoolUnityEvent();
-    [HideInInspector]
-    public UnityEvent Tick = new UnityEvent ();
+    //[HideInInspector]
+    //public UnityEvent Tick = new UnityEvent ();
     [HideInInspector]
     public IntUnityEvent ChangeSecond = new IntUnityEvent();
     [HideInInspector]
@@ -23,9 +23,11 @@ public class Timer : MonoBehaviour
     bool IsInitialized;
     WebData uploader;
     GameObject alarmGO;
+    AudioSource audioSource;
 
     public void Init(int initSecondNumber, float initMillisecond, WebData webData)
     {
+        audioSource = GetComponent<AudioSource>();
         uploader = webData;
         CurrentTickNumber = initSecondNumber;
         CurrentTickStep = initMillisecond;
@@ -45,8 +47,8 @@ public class Timer : MonoBehaviour
         {
             CurrentTickStep = 0;
             ApplyTick();
+            audioSource.Play();
         }
-        if (Tick != null) Tick.Invoke();
     }
 
     private void ApplyTick()
